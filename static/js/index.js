@@ -36,7 +36,7 @@ $(document).ready(function() {
       infinite: true,
       autoplay: false,
       autoplaySpeed: 3000,
-      centerMode: true,
+      centerMode: false,
       centerPadding: '60px',
     };
 
