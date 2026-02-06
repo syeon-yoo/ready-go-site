@@ -130,6 +130,11 @@ body {
   overflow: hidden;
 }
 
+.results-carousel .slider,
+.results-carousel .slider-container {
+  overflow: visible;
+}
+
 /* .results-carousel .slider-item {
   aspect-ratio: 16 / 9;
 } */

@@ -29,17 +29,38 @@ $(document).ready(function() {
 
     });
 
-    var options = {
-			slidesToScroll: 1,
-			slidesToShow: 1,
-			loop: false,
-			infinite: false,
-			autoplay: false,
-			autoplaySpeed: 3000,
-    }
+    var baseOptions = {
+      slidesToScroll: 1,
+      slidesToShow: 1,
+      loop: true,
+      infinite: true,
+      autoplay: false,
+      autoplaySpeed: 3000,
+      centerMode: true,
+      centerPadding: '60px',
+    };
 
-		// Initialize all div with carousel class
-    var carousels = bulmaCarousel.attach('.carousel', options);
+    // Initialize each carousel with safe options for its item count
+    var carouselElements = document.querySelectorAll('.carousel');
+    var carousels = [];
+    carouselElements.forEach(function (el) {
+      var itemCount = el.children.length;
+      var options = Object.assign({}, baseOptions);
+
+      if (itemCount < options.slidesToShow) {
+        options.slidesToShow = Math.max(itemCount, 1);
+      }
+      if (itemCount <= options.slidesToShow) {
+        options.loop = false;
+        options.infinite = false;
+        options.centerMode = false;
+      }
+
+      var instances = bulmaCarousel.attach(el, options);
+      if (instances && instances.length) {
+        carousels = carousels.concat(instances);
+      }
+    });
 
     // Loop on each carousel initialized
     for(var i = 0; i < carousels.length; i++) {
