@@ -131,7 +131,7 @@ body {
 }
 
 .results-carousel .slider-item {
-  height: clamp(180px, 30vw, 360px);
+  aspect-ratio: 16 / 9;
 }
 
 .results-carousel .item {
