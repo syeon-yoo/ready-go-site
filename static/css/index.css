@@ -130,6 +130,10 @@ body {
   overflow: hidden;
 }
 
+.results-carousel .slider-item {
+  height: clamp(180px, 30vw, 360px);
+}
+
 .results-carousel .item {
   margin: 5px;
   overflow: hidden;
@@ -137,7 +141,7 @@ body {
   border-radius: 10px;
   padding: 0;
   font-size: 0;
-  aspect-ratio: 16 / 9;
+  height: 100%;
 }
 
 .results-carousel video {
