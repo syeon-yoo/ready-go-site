@@ -132,7 +132,7 @@ body {
 
 .results-carousel .slider,
 .results-carousel .slider-container {
-  overflow: visible;
+  overflow: hidden;
 }
 
 /* .results-carousel .slider-item {
