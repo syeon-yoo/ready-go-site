@@ -127,7 +127,7 @@ body {
 }
 
 .results-carousel {
-  overflow: hidden;
+  overflow: visible;
 }
 
 .results-carousel .slider,
