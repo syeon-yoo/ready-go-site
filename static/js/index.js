@@ -36,9 +36,6 @@ $(document).ready(function() {
       infinite: true,
       autoplay: false,
       autoplaySpeed: 3000,
-      centerMode: true,
-      centerPadding: '60px',
-      breakpoints: [],
     };
 
     // Initialize each carousel with safe options for its item count

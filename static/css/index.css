@@ -127,17 +127,17 @@ body {
 }
 
 .results-carousel {
-  overflow: visible;
+  overflow: hidden;
 }
 
-.results-carousel .slider,
+/* .results-carousel .slider,
 .results-carousel .slider-container {
   overflow: visible;
 }
 
 .results-carousel .slider-item {
   width: 80% !important;
-}
+} */
 
 .results-carousel .item {
   margin: 5px;
