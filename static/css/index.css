@@ -135,6 +135,11 @@ body {
   overflow: visible;
 }
 
+.results-carousel .slider {
+  padding: 0 60px !important;
+  box-sizing: border-box;
+}
+
 /* .results-carousel .slider-item {
   aspect-ratio: 16 / 9;
 } */
