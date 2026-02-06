@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="ReaDy-Go.">
+  <meta name="keywords" content="ReaDy-Go, 3DGS, human animation">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ReaDy-Go: Real-to-Sim Dynamic 3D Gaussian Splatting Simulation for Environment-Specific Visual Navigation with Moving Obstacles</title>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-211443F4YM"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-211443F4YM');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <!-- <link rel="icon" href="./static/images/favicon.svg"> -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">ReaDy-Go: Real-to-Sim Dynamic 3D Gaussian Splatting Simulation for Environment-Specific Visual Navigation with Moving Obstacles</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://syeon-yoo.github.io/">Seungyeon Yoo</a>,
+            </span>
+            <span class="author-block">
+              Youngseok Jang,
+            </span>
+            <span class="author-block">
+              Dabin Kim,
+            </span>
+            <span class="author-block">
+              Youngsoo Han,
+            </span>
+            <span class="author-block">
+              Seungwoo Jung,
+            </span>
+            <span class="author-block">
+              <a href="https://larr.snu.ac.kr/">H. Jin Kim</a><sup>2</sup>,
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"> Seoul National University, </span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://ieeexplore.ieee.org/document/11180891"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <!-- <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=Q1QAKt0e9DY"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span> -->
+              <!-- Code Link. -->
+              <!-- <span class="link-block">
+                <a href="https://github.com/syeon-yoo/sincro"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span> -->
+              <!-- Dataset Link. -->
+              <!-- <span class="link-block">
+                <a href="https://github.com/google/nerfies/releases/tag/0.1"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Data</span>
+                  </a> -->
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <div class="teaser-crop">
+        <video id="teaser" autoplay muted loop playsinline>
+          <source src="./static/videos/readygo_teaser.mp4" type="video/mp4">
+        </video>
+      </div>
+      <h2 class="subtitle has-text-centered">
+        <span class="dnerf">ReaDy-Go</span> achieves robust visual navigation under sim-to-real transfer and moving obstacles by proposing a real-to-sim dynamic environment simulation pipeline for policy training.
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Visual navigation models often struggle in real-world dynamic environments due to limited robustness to the sim-to-real gap and the difficulty of training policies tailored to target deployment environments (e.g., households, restaurants, and factories).
+            Although real-to-sim navigation simulation using 3D Gaussian Splatting (GS) can mitigate this gap, prior works have assumed only static scenes or unrealistic dynamic obstacles, despite the importance of safe navigation in dynamic environments.
+            To address these issues, we propose ReaDy-Go, a novel real-to-sim simulation pipeline that synthesizes photorealistic dynamic scenarios for target environments.
+            ReaDy-Go generates photorealistic navigation datasets for dynamic environments by combining a reconstructed static GS scene with dynamic human GS obstacles, and trains policies robust to both the sim-to-real gap and moving obstacles.
+            The pipeline consists of three components: (1) a dynamic GS simulator that integrates scene GS with a human animation module, enabling the insertion of animatable human GS avatars and the synthesis of plausible human motions from 2D trajectories,
+            (2) navigation dataset generation for dynamic environments that leverages the simulator, a robot expert planner designed for dynamic GS representations, and a human planner, and (3) policy learning using the generated datasets.
+            ReaDy-Go outperforms baselines across target environments in both simulation and real-world experiments, demonstrating improved navigation performance even after sim-to-real transfer and in the presence of moving obstacles.
+            Moreover, zero-shot sim-to-real deployment in an unseen environment indicates its generalization potential.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <!-- Paper video. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <video id="teaser" controls playsinline height="100%">
+            <source src="./static/videos/ReaDy-Go_HD.mp4"
+                    type="video/mp4">
+          </video>
+          <!-- <iframe src="https://www.youtube.com/embed/Q1QAKt0e9DY?rel=0"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe> -->
+        </div>
+      </div>
+    </div>
+    <!-- / Paper video. -->
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Rendering. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">ReaDy-Go Simulation Visualization</h2>
+        <div class="content has-text-justified">
+          <p>
+            <span class="dnerf">ReaDy-Go</span> generates photorealistic real-to-sim navigation datasets for dynamic scenes.
+          </p>
+        </div>
+        <div class="content has-text-centered">
+          <div class="rendering-crop">
+            <video id="replay-video"
+                   autoplay
+                   muted
+                   preload
+                   playsinline
+                   loop
+                   width="100%">
+              <source src="./static/videos/rendering.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--/ Rendering. -->
+
+    <!-- Navigation experiments. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Real-World Visual Navigation Experiments</h2>
+
+        <!-- Target deployment environments. -->
+        <h3 class="title is-4">Sim-to-Real Transfer</h3>
+        <div class="content has-text-justified">
+          <p>
+            <span class="dnerf">ReaDy-Go</span> demonstrates robust sim-to-real transfer of policies trained solely in simulation (video speed x2).
+          </p>
+        </div>
+        <!-- <div class="content has-text-centered">
+          <div class="rendering-crop">
+            <video id="replay-video"
+                   autoplay
+                   muted
+                   preload
+                   playsinline
+                   loop
+                   width="100%">
+              <source src="./static/videos/RL_evaluation.mp4"
+                      type="video/mp4">
+            </video>
+          </div> -->
+          <div class="container">
+            <div id="results-carousel" class="carousel results-carousel">
+              <div class="item item-outside">
+                <video poster="" id="outside" autoplay controls muted loop playsinline height="100%">
+                  <source src="./static/videos/outside.mp4"
+                          type="video/mp4">
+                </video>
+              </div>
+              <div class="item item-lobby">
+                <video poster="" id="lobby" autoplay controls muted loop playsinline height="100%">
+                  <source src="./static/videos/lobby.mp4"
+                          type="video/mp4">
+                </video>
+              </div>
+              <div class="item item-library">
+                <video poster="" id="library" autoplay controls muted loop playsinline height="100%">
+                  <source src="./static/videos/library.mp4"
+                          type="video/mp4">
+                </video>
+              </div>
+            </div>
+          </div>
+        <!-- </div> -->
+        <br/>
+        <!--/ Target deployment environments. -->
+
+        <!-- Unseen environment. -->
+        <h3 class="title is-4">Zero-Shot Sim-to-Real Transfer in an Unseen Environment.</h3>
+        <div class="content has-text-justified">
+          <p>
+            <span class="dnerf">ReaDy-Go</span> shows generalization via zero-shot sim-to-real deployment.
+          </p>
+        </div>
+        <div class="content has-text-centered">
+          <div class="rendering-crop">
+            <video id="replay-video"
+                   autoplay
+                   muted
+                   preload
+                   playsinline
+                   loop
+                   width="100%">
+              <source src="./static/videos/generalization.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+        </div>
+        <!--/ Unseen environment. -->
+
+      </div>
+    </div>
+    <!--/ Navigation experiments. -->
+
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <!-- <pre><code>@ARTICLE{11180891,
+  author={Cho, Daesol and Yoo, Seungyeon and Shim, Dongseok and Kim, H. Jin},
+  journal={IEEE Robotics and Automation Letters}, 
+  title={Single-View 3D-Aware Representations for Reinforcement Learning by Cross-View Neural Radiance Fields}, 
+  year={2025},
+  volume={10},
+  number={11},
+  pages={12039-12046},
+  keywords={Three-dimensional displays;Neural radiance field;Cameras;Representation learning;Image reconstruction;Visualization;Robots;Robot vision systems;Training;Solid modeling;Reinforcement learning;representation learning;visual learning},
+  doi={10.1109/LRA.2025.3615035}}
+    </code></pre> -->
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This page was built with <a href="https://github.com/nerfies/nerfies.github.io">Nerfies</a> template.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
