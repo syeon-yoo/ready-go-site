@@ -130,9 +130,9 @@ body {
   overflow: hidden;
 }
 
-.results-carousel .slider-item {
+/* .results-carousel .slider-item {
   aspect-ratio: 16 / 9;
-}
+} */
 
 .results-carousel .item {
   margin: 5px;
@@ -146,14 +146,6 @@ body {
 
 .results-carousel video {
   margin: 0;
-}
-
-.results-carousel .item video {
-  width: 100%;
-  height: 100%;
-  object-fit: contain; /* no cropping */
-  display: block;
-  background: #000; /* optional letterbox */
 }
 
 .interpolation-panel {

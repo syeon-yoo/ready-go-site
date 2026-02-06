@@ -908,11 +908,7 @@ var bulmaCarousel = function (_EventEmitter) {
   }, {
     key: 'direction',
     get: function get() {
-      var elementDir = '';
-      if (this.element) {
-        elementDir = (this.element.getAttribute('dir') || this.element.dir || '').toLowerCase();
-      }
-      return elementDir === 'rtl' || this.element.style.direction === 'rtl' ? 'rtl' : 'ltr';
+      return this.element.dir.toLowerCase() === 'rtl' || this.element.style.direction === 'rtl' ? 'rtl' : 'ltr';
     }
   }, {
     key: 'wrapper',
