@@ -204,3 +204,15 @@ body {
   object-position: center;
   display: block;
 }
+
+.overview-figure {
+  width: 100%;
+}
+
+.overview-image {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  display: inline-block;
+  border-radius: 10px;
+}
