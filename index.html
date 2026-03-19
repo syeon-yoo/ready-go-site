@@ -141,7 +141,8 @@
   <div class="container is-max-desktop">
     <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
+      <!-- <div class="column is-four-fifths"> -->
+      <div class="column is-full-width">
         <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
@@ -289,7 +290,7 @@
         <!--/ Target deployment environments. -->
 
         <!-- Unseen environment. -->
-        <h3 class="title is-4">Zero-Shot Sim-to-Real Transfer in an Unseen Environment.</h3>
+        <h3 class="title is-4">Zero-Shot Sim-to-Real Transfer in an Unseen Environment</h3>
         <div class="content has-text-justified">
           <p>
             <span class="dnerf">ReaDy-Go</span> shows generalization via zero-shot sim-to-real deployment in an unseen environment (video speed x2).
@@ -314,6 +315,59 @@
       </div>
     </div>
     <!--/ Navigation experiments. -->
+
+    <!-- Quantitative Results. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Quantitative Results</h2>
+
+        <!-- simulation quantitative results -->
+        <h3 class="title is-4">Simulation Quantitative Results</h3>
+        <div class="content has-text-justified">
+          <p>
+            Training environment-specific navigation policies using real-to-sim simulation is crucial for safe and efficient navigation.
+            <span class="dnerf">ReaDy-Go</span> and Vid2Sim, both trained in real-to-sim target environments, achieve higher success rates and lower average reaching times than general navigation models (GNM, NoMaD, and ViNT) across all tasks and environments.
+            This performance is particularly notable given that the general models require up to 15 times more parameters.
+          </p>
+        </div>
+        <div class="content has-text-centered">
+          <div class="overview-figure">
+            <img
+              class="overview-image"
+              src="./static/images/simulation_table.png"
+              alt="Simulation Quantitative Results">
+          </div>
+        </div>
+        <!--/ simulation quantitative results -->
+
+        <!-- real-world quantitative results -->
+        <h3 class="title is-4">Real-World Quantitative Results</h3>
+        <div class="content has-text-justified">
+          <p>
+            We observe three key takeaways from real-world experiments.
+            <strong>First, the photorealistic real-to-sim simulation of <span class="dnerf">ReaDy-Go</span> facilitates sim-to-real transfer of visual navigation policies trained solely in simulation.</strong>
+            <span class="dnerf">ReaDy-Go</span> achieves comparable success rates in both Static and Dynamic tasks in the real world, consistent with its simulation results across all environments.
+            <strong>Second, environment-specific policies (<span class="dnerf">ReaDy-Go</span> and Vid2Sim) trained on real-to-sim datasets for target environments achieve higher success rates and lower average reaching times than the general navigation model (ViNT), although ViNT requires 15 times more parameters.</strong>
+            This validates the practicality of <span class="dnerf">ReaDy-Go</span> for robots operating in specific environments, such as households, restaurants, and factories.
+            <strong>Lastly, photorealistic dynamic obstacles in <span class="dnerf">ReaDy-Go</span> are a key factor in maintaining visual navigation performance in dynamic environments.</strong>
+            In <em>Dynamic</em>, <span class="dnerf">ReaDy-Go</span> shows the highest success rate and the lowest average reaching time, with only a slight performance degradation compared to <em>Static</em>.
+            In contrast, Vid2Sim exhibits a larger performance drop in <em>Dynamic</em> compared to <span class="dnerf">ReaDy-Go</span>.
+            Since the two methods differ only in the training data, i.e., photorealistic human GS dynamic obstacles for <span class="dnerf">ReaDy-Go</span> versus human assets in a physics engine for Vid2Sim, these results suggest that the proposed photorealistic dynamic GS simulation helps improve navigation performance in dynamic scenarios, which is a practical advantage for robot deployment.
+          </p>
+        </div>
+        <div class="content has-text-centered">
+          <div class="overview-figure">
+            <img
+              class="overview-image"
+              src="./static/images/realworld_table.png"
+              alt="Real-World Quantitative Results">
+          </div>
+        </div>
+        <!--/ real-world quantitative results -->
+
+      </div>
+    </div>
+    <!--/ Quantitative Results. -->
 
   </div>
 </section>
